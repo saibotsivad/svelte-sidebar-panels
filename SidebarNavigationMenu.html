@@ -1,0 +1,139 @@
+<div class="container">
+	<div id="sidebar-menu" aria-expanded="{sidebarIsOpen ? 'true' : 'false'}">
+		<div id="sidebar-menu-content-area">
+			<div class="slot slot-sidebar">
+				this sidebar can be whatever
+			</div>
+		</div>
+		<button
+			type="button"
+			id="sidebar-close-control"
+			on:click="set({ sidebarIsOpen: !sidebarIsOpen })"
+			on:keypress="set({ sidebarIsOpen: !sidebarIsOpen })"
+			aria-controls="sidebar-menu"
+			aria-label="toggle sidebar menu"
+			aria-expanded="{sidebarIsOpen ? 'true' : 'false'}"
+		>
+		</button>
+	</div>
+	<div id="content">
+		<div id="titlebar">
+			<button
+				id="sidebar-opener"
+				on:click="set({ sidebarIsOpen: !sidebarIsOpen })"
+				on:keypress="set({ sidebarIsOpen: !sidebarIsOpen })"
+				aria-controls="sidebar-menu"
+				aria-label="toggle sidebar menu"
+				aria-expanded="{sidebarIsOpen ? 'true' : 'false'}"
+			>
+				<span class="slot slot-opener-button">
+					&#9776;
+					<!--
+					default is the hamburger icon
+					hidden on big enough screens
+					-->
+				</span>
+			</button>
+			<div id="title">
+				<div class="slot slot-titlebar">
+					this part is always visible
+				</div>
+			</div>
+		</div>
+		<div id="main">
+			<div class="slot slot-main-content">
+				this is where the main content goes
+			</div>
+		</div>
+	</div>
+</div>
+
+<style type="text/css">
+html, body {
+	padding: 0;
+	margin: 0;
+}
+.container {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+#titlebar {
+	display: flex;
+}
+#sidebar-opener {
+	flex-basis: 50px;
+}
+#title {
+	flex: 2;
+}
+button {
+	border: none;
+	padding: 0;
+	margin: 0;
+	background-color: transparent;
+}
+
+/* small and medium screens */
+@media all and (max-width: 800px) {
+	#sidebar-menu[aria-expanded=false] {
+		display: none;
+	}
+	#sidebar-menu[aria-expanded=true] {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		display: flex;
+	}
+	#sidebar-menu-content-area {
+		flex: 2;
+	}
+	#sidebar-close-control {
+		flex-basis: 50px;
+	}
+}
+
+/* medium screens */
+@media all and (min-width: 600px) {
+	#sidebar-close-control {
+		flex-basis: 200px;
+	}
+}
+
+/* large screens */
+@media all and (min-width: 800px) {
+	.container {
+		display: flex;
+	}
+	#sidebar-menu-content-area {
+		flex-basis: 200px;
+	}
+	#sidebar-close-control, #sidebar-opener {
+		display: none;
+	}
+	#content {
+		flex: 2;
+	}
+}
+
+/* colors for dev purposes */
+.container {
+	background-color: #637de4;
+}
+#sidebar-menu-content-area {
+	background-color: #4cb041;
+}
+#sidebar-menu {
+	background-color: #ebe76f;
+}
+#sidebar-close-control {
+	background-color: #eb5c5c80;
+}
+#titlebar {
+	background-color: red;
+}
+</style>
