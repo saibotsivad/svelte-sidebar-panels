@@ -1,6 +1,5 @@
 <script>
 	import { onMount } from 'svelte'
-	let windowWidth
 
 	// You should bind to these, and toggle them by user input, but typically
 	// you shouldn't give them an initial value: if the page is initialized on
