@@ -1,4 +1,4 @@
-import Sidebar from '../SidebarNavigationMenu.html'
+import { default as Demo } from '../src/Demo.svelte'
 
 const onReady = callback => {
 	const state = document.readyState
@@ -12,10 +12,10 @@ const onReady = callback => {
 }
 
 onReady(() => {
-	const sidebar = new Sidebar({
+	const demo = new Demo({
 		target: document.querySelector('body'),
-		data: {
-			sidebarIsOpen: true
-		}
+	})
+	demo.$on('foo', ({ detail }) => {
+		console.log('foo', detail)
 	})
 })
