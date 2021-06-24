@@ -14,3 +14,7 @@ it has a few slots
 - content on top of panels
 - open/close animation
 - ???
+
+### License
+
+VOL
