@@ -1,4 +1,4 @@
-import { default as Demo } from '../src/Demo.svelte'
+import { default as Demo } from '../src/demo/Demo.svelte'
 
 const onReady = callback => {
 	const state = document.readyState
