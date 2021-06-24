@@ -1,2 +1,16 @@
 # svelte-sidebar-navigation-menu
-Sidebar navigational menu component. Looks good on all sizes of screens. Accessibility features.
+
+Sidebar navigational panels.
+
+## What is it?
+
+it has a few slots
+- sidebar
+- main view
+- header?
+
+## Opinions
+
+- content on top of panels
+- open/close animation
+- ???

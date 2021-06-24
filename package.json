@@ -1,0 +1,43 @@
+{
+  "name": "svelte-sidebar-navigation-menu",
+  "version": "0.0.0",
+  "description": "Sidebar navigational menu component. Looks good on all sizes of screens. Accessibility features.",
+  "svelte": "src/index.js",
+  "module": "dist/index.mjs",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "sirv docs --dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saibotsivad/svelte-sidebar-navigation-menu.git"
+  },
+  "keywords": [
+    "svelte",
+    "accessible",
+    "navigation",
+    "menu"
+  ],
+  "files": [
+    "src",
+    "dist"
+  ],
+  "author": "saibotsivad",
+  "license": "VOL",
+  "bugs": {
+    "url": "https://github.com/saibotsivad/svelte-sidebar-navigation-menu/issues"
+  },
+  "homepage": "https://github.com/saibotsivad/svelte-sidebar-navigation-menu#readme",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "rollup": "^2.52.2",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-npm-run": "^1.0.2",
+    "rollup-plugin-svelte": "^7.1.0",
+    "sirv-cli": "^1.0.12",
+    "svelte": "^3.38.3"
+  }
+}
