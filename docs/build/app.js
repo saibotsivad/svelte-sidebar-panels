@@ -1525,7 +1525,7 @@
     			t1 = space();
     			create_component(loremipsum.$$.fragment);
     			attr(div, "slot", "left");
-    			attr(div, "class", "svelte-pz8abf");
+    			attr(div, "class", "svelte-1q15izp");
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -1567,7 +1567,7 @@
     			t1 = space();
     			create_component(loremipsum.$$.fragment);
     			attr(div, "slot", "right");
-    			attr(div, "class", "svelte-pz8abf");
+    			attr(div, "class", "svelte-1q15izp");
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -1645,7 +1645,7 @@
     			create_component(loremipsum.$$.fragment);
     			attr(div0, "class", "container");
     			attr(div1, "slot", "content");
-    			attr(div1, "class", "svelte-pz8abf");
+    			attr(div1, "class", "svelte-1q15izp");
     		},
     		m(target, anchor) {
     			insert(target, div1, anchor);

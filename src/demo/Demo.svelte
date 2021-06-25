@@ -28,7 +28,7 @@
 	div[slot="content"] {
 		padding: 15px;
 		min-height: 100%;
-		background-color: #ececec;
+		background-color: #bcd9b4;
 	}
 </style>
 
