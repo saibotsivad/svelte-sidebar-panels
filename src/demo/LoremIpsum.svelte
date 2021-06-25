@@ -20,21 +20,28 @@
 	$: lorem = new Array(count).fill('').map((_,index) => longTextThings[index % longTextThings.length])
 </script>
 
-<div class="card mt-3 mb-3">
-	<div class="card-body">
-		<p>
-			Filler content generated using <a href="http://officeipsum.com/">OfficeIpsum</a>.
-		</p>
-		<p>
-			Paragraphs ({count})
-		</p>
-		<div class="btn-group" role="group" aria-label="Toggle panels">
-			<button type="button" class="btn btn-primary" on:click={() => count++}>
-				+
-			</button>
-			<button type="button" class="btn btn-primary" on:click={() => { if (count) { count-- } } }>
-				-
-			</button>
+<div class="row">
+	<div class="col-auto">
+		<div class="card mt-3 mb-3">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-auto" style="margin-top: -6px;">
+						Filler
+						<br>
+						Text
+					</div>
+					<div class="col-auto">
+						<div class="btn-group" role="group" aria-label="Toggle panels">
+							<button type="button" class="btn btn-primary" on:click={() => count++}>
+								+
+							</button>
+							<button type="button" class="btn btn-primary" on:click={() => { if (count) { count-- } } }>
+								-
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

@@ -1,6 +1,7 @@
 <script>
 	import SidebarPanels from '../SidebarPanels.svelte'
-	import DemoContent from './DemoContent.svelte'
+	import LoremIpsum from './LoremIpsum.svelte'
+	import DemoControls from './DemoControls.svelte'
 
 	let leftOpen
 	let rightOpen
@@ -10,6 +11,10 @@
 </script>
 
 <style>
+	/*
+	These styles are not necessary to make the component function correctly, they are
+	only here to make the demo prettier.
+	*/
 	div[slot="left"] {
 		background-color: #b1b1b1;
 		padding: 15px;
@@ -25,38 +30,46 @@
 		padding: 15px;
 		min-height: 100%;
 	}
+	/* custom scrollbars because the defaults look so bad */
+	:global(.sidebar-panel) {
+		scrollbar-width: thin;
+		scrollbar-color: #454545 #b1b1b1;
+	}
+	:global(.sidebar-panel::-webkit-scrollbar) {
+		width: 12px;
+	}
+	:global(.sidebar-panel::-webkit-scrollbar-track) {
+		background: #b1b1b1;
+	}
+	:global(.sidebar-panel::-webkit-scrollbar-thumb) {
+		background-color: #454545;
+		border-radius: 20px;
+		border: 3px solid #b1b1b1;
+	}
 </style>
 
 <SidebarPanels bind:updatePanels {duration} on:change={({ detail: { left, right } }) => { leftOpen = left; rightOpen = right }}>
 	<div slot="left">
-		<DemoContent />
+		<LoremIpsum />
 	</div>
 	<div slot="right">
-		<DemoContent />
+		<LoremIpsum />
 	</div>
-	<div slot="content" class="container">
-		<h1>Svelte Sidebar Panels</h1>
-		<p>Intro text.</p>
-		<div class="card">
-			<div class="card-body">
-				<h2>Controls</h2>
-				<p>Not all controls are shown or needed, this just demonstrates a few of them.</p>
-				<h4>Toggle panel visibility</h4>
-				<p>
-					Panels are automatically initialized open/closed based on the screen width,
-					and automatically open/close if the window is resized. (You can opt out of
-					that behaviour.)
-				</p>
-				<div class="btn-group" role="group" aria-label="Toggle panels">
-					<button type="button" class="btn btn-{leftOpen ? 'primary' : 'secondary'}" on:click={ () => { updatePanels({ left: !leftOpen }) } }>
-						Toggle Left
-					</button>
-					<button type="button" class="btn btn-{rightOpen ? 'primary' : 'secondary'}" on:click={ () => { updatePanels({ right: !rightOpen }) } }>
-						Toggle Right
-					</button>
-				</div>
-			</div>
+	<div slot="content">
+		<div class="container">
+			<h1>Svelte Sidebar Panels</h1>
+			<p>Intro text.</p>
+			<p>
+				Filler content generated using <a href="http://officeipsum.com/">OfficeIpsum</a>.
+			</p>
+			<DemoControls
+				{leftOpen}
+				{rightOpen}
+				bind:duration
+				on:toggleLeft={ () => { updatePanels({ left: !leftOpen }) } }
+				on:toggleRight={ () => { updatePanels({ right: !rightOpen }) } }
+			/>
+			<LoremIpsum />
 		</div>
-		<DemoContent />
 	</div>
 </SidebarPanels>

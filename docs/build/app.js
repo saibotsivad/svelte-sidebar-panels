@@ -1,3 +1,5 @@
+
+(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(window.document);
 (function () {
     'use strict';
 
@@ -222,6 +224,9 @@
         data = '' + data;
         if (text.wholeText !== data)
             text.data = data;
+    }
+    function set_style(node, key, value, important) {
+        node.style.setProperty(key, value, important ? 'important' : '');
     }
     function custom_event(type, detail) {
         const e = document.createEvent('CustomEvent');
@@ -512,7 +517,7 @@
     const get_left_slot_changes = dirty => ({});
     const get_left_slot_context = ctx => ({});
 
-    // (149:0) {#if $$slots.left}
+    // (152:0) {#if $$slots.left}
     function create_if_block_3(ctx) {
     	let div;
     	let current;
@@ -524,6 +529,7 @@
     			div = element("div");
     			if (left_slot) left_slot.c();
     			attr(div, "style", /*leftMenuStyle*/ ctx[1]);
+    			attr(div, "class", "sidebar-panel sidebar-panel-left");
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -561,7 +567,7 @@
     	};
     }
 
-    // (156:1) {#if $$slots.left && mobileMode}
+    // (159:1) {#if $$slots.left && mobileMode}
     function create_if_block_2(ctx) {
     	let div;
     	let mounted;
@@ -593,7 +599,7 @@
     	};
     }
 
-    // (160:1) {#if $$slots.right && mobileMode}
+    // (163:1) {#if $$slots.right && mobileMode}
     function create_if_block_1(ctx) {
     	let div;
     	let mounted;
@@ -625,7 +631,7 @@
     	};
     }
 
-    // (165:0) {#if $$slots.right}
+    // (168:0) {#if $$slots.right}
     function create_if_block(ctx) {
     	let div;
     	let current;
@@ -637,6 +643,7 @@
     			div = element("div");
     			if (right_slot) right_slot.c();
     			attr(div, "style", /*rightMenuStyle*/ ctx[2]);
+    			attr(div, "class", "sidebar-panel sidebar-panel-left");
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -674,7 +681,7 @@
     	};
     }
 
-    function create_fragment$2(ctx) {
+    function create_fragment$3(ctx) {
     	let t0;
     	let div;
     	let t1;
@@ -705,6 +712,7 @@
     			if (if_block3) if_block3.c();
     			if_block3_anchor = empty();
     			attr(div, "style", /*contentStyle*/ ctx[5]);
+    			attr(div, "class", "sidebar-content");
     		},
     		m(target, anchor) {
     			if (if_block0) if_block0.m(target, anchor);
@@ -845,7 +853,7 @@
     	};
     }
 
-    function instance$2($$self, $$props, $$invalidate) {
+    function instance$3($$self, $$props, $$invalidate) {
     	let mobileMode;
     	let mobilePanelWidth;
     	let leftMenuStyle;
@@ -858,15 +866,6 @@
     	let { $$slots: slots = {}, $$scope } = $$props;
     	const $$slots = compute_slots(slots);
     	const dispatch = createEventDispatcher();
-    	let { mobileBreakpoint = 500 } = $$props;
-    	let { scrimWidth = "50px" } = $$props;
-    	let { scrimColor = "#444" } = $$props;
-    	let { leftOpenBreakpoint = 768 } = $$props;
-    	let { rightOpenBreakpoint = 1200 } = $$props;
-    	let { width = "200px" } = $$props;
-    	let { leftWidth } = $$props;
-    	let { rightWidth } = $$props;
-    	let { duration = "0.08s" } = $$props;
 
     	const updatePanels = ({ left, right }) => {
     		if (left !== undefined) {
@@ -878,6 +877,15 @@
     		}
     	};
 
+    	let { mobileBreakpoint = 500 } = $$props;
+    	let { scrimWidth = "50px" } = $$props;
+    	let { scrimColor = "#444" } = $$props;
+    	let { leftOpenBreakpoint = 768 } = $$props;
+    	let { rightOpenBreakpoint = 1200 } = $$props;
+    	let { width = "250px" } = $$props;
+    	let { leftWidth } = $$props;
+    	let { rightWidth } = $$props;
+    	let { duration = "0.08s" } = $$props;
     	let windowWidth;
     	let leftOpen;
     	let leftTransitioning;
@@ -956,56 +964,56 @@
 	`;
 
     	$$self.$$set = $$props => {
-    		if ("mobileBreakpoint" in $$props) $$invalidate(11, mobileBreakpoint = $$props.mobileBreakpoint);
-    		if ("scrimWidth" in $$props) $$invalidate(12, scrimWidth = $$props.scrimWidth);
-    		if ("scrimColor" in $$props) $$invalidate(13, scrimColor = $$props.scrimColor);
-    		if ("leftOpenBreakpoint" in $$props) $$invalidate(14, leftOpenBreakpoint = $$props.leftOpenBreakpoint);
-    		if ("rightOpenBreakpoint" in $$props) $$invalidate(15, rightOpenBreakpoint = $$props.rightOpenBreakpoint);
-    		if ("width" in $$props) $$invalidate(16, width = $$props.width);
-    		if ("leftWidth" in $$props) $$invalidate(17, leftWidth = $$props.leftWidth);
-    		if ("rightWidth" in $$props) $$invalidate(18, rightWidth = $$props.rightWidth);
-    		if ("duration" in $$props) $$invalidate(19, duration = $$props.duration);
+    		if ("mobileBreakpoint" in $$props) $$invalidate(12, mobileBreakpoint = $$props.mobileBreakpoint);
+    		if ("scrimWidth" in $$props) $$invalidate(13, scrimWidth = $$props.scrimWidth);
+    		if ("scrimColor" in $$props) $$invalidate(14, scrimColor = $$props.scrimColor);
+    		if ("leftOpenBreakpoint" in $$props) $$invalidate(15, leftOpenBreakpoint = $$props.leftOpenBreakpoint);
+    		if ("rightOpenBreakpoint" in $$props) $$invalidate(16, rightOpenBreakpoint = $$props.rightOpenBreakpoint);
+    		if ("width" in $$props) $$invalidate(17, width = $$props.width);
+    		if ("leftWidth" in $$props) $$invalidate(18, leftWidth = $$props.leftWidth);
+    		if ("rightWidth" in $$props) $$invalidate(19, rightWidth = $$props.rightWidth);
+    		if ("duration" in $$props) $$invalidate(20, duration = $$props.duration);
     		if ("$$scope" in $$props) $$invalidate(29, $$scope = $$props.$$scope);
     	};
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty[0] & /*windowWidth, mobileBreakpoint*/ 2099200) {
+    		if ($$self.$$.dirty[0] & /*windowWidth, mobileBreakpoint*/ 2101248) {
     			$$invalidate(0, mobileMode = windowWidth < mobileBreakpoint);
     		}
 
-    		if ($$self.$$.dirty[0] & /*scrimWidth*/ 4096) {
+    		if ($$self.$$.dirty[0] & /*scrimWidth*/ 8192) {
     			$$invalidate(26, mobilePanelWidth = `calc(100% - ${scrimWidth})`);
     		}
 
-    		if ($$self.$$.dirty[0] & /*mobileMode, mobilePanelWidth, leftWidth, width, leftOpen*/ 71499777) {
+    		if ($$self.$$.dirty[0] & /*mobileMode, mobilePanelWidth, leftWidth, width, leftOpen*/ 71696385) {
     			$$invalidate(1, leftMenuStyle = makeMenuStyle("left", mobileMode ? mobilePanelWidth : leftWidth || width, mobileMode && leftOpen ? "3" : "2"));
     		}
 
-    		if ($$self.$$.dirty[0] & /*mobileMode, mobilePanelWidth, rightWidth, width, rightOpen*/ 84213761) {
+    		if ($$self.$$.dirty[0] & /*mobileMode, mobilePanelWidth, rightWidth, width, rightOpen*/ 84541441) {
     			$$invalidate(2, rightMenuStyle = makeMenuStyle("right", mobileMode ? mobilePanelWidth : rightWidth || width, mobileMode && rightOpen ? "2" : "1"));
     		}
 
-    		if ($$self.$$.dirty[0] & /*mobileMode, leftOpen, leftTransitioning, scrimColor*/ 12591105) {
+    		if ($$self.$$.dirty[0] & /*mobileMode, leftOpen, leftTransitioning, scrimColor*/ 12599297) {
     			$$invalidate(3, leftScrimStyle = mobileMode && makeScrimStyle("left", leftOpen, leftTransitioning, scrimColor));
     		}
 
-    		if ($$self.$$.dirty[0] & /*mobileMode, rightOpen, rightTransitioning, scrimColor*/ 50339841) {
+    		if ($$self.$$.dirty[0] & /*mobileMode, rightOpen, rightTransitioning, scrimColor*/ 50348033) {
     			$$invalidate(4, rightScrimStyle = mobileMode && makeScrimStyle("right", rightOpen, rightTransitioning, scrimColor));
     		}
 
-    		if ($$self.$$.dirty[0] & /*mobileMode, leftOpen, scrimWidth, rightOpen, leftWidth, width*/ 21172225) {
+    		if ($$self.$$.dirty[0] & /*mobileMode, leftOpen, scrimWidth, rightOpen, leftWidth, width*/ 21372929) {
     			$$invalidate(27, contentLeft = mobileMode
     			? leftOpen && `calc(100% - ${scrimWidth})` || rightOpen && `calc(${scrimWidth} - 100%)` || "0px"
     			: leftOpen ? leftWidth || width : "0px");
     		}
 
-    		if ($$self.$$.dirty[0] & /*mobileMode, leftOpen, leftWidth, width, rightOpen, rightWidth*/ 21430273) {
+    		if ($$self.$$.dirty[0] & /*mobileMode, leftOpen, leftWidth, width, rightOpen, rightWidth*/ 21889025) {
     			$$invalidate(28, contentWidth = mobileMode
     			? "100%"
     			: `calc(100% - ${leftOpen ? leftWidth || width : "0px"} - ${rightOpen ? rightWidth || width : "0px"})`);
     		}
 
-    		if ($$self.$$.dirty[0] & /*contentLeft, contentWidth, duration*/ 403177472) {
+    		if ($$self.$$.dirty[0] & /*contentLeft, contentWidth, duration*/ 403701760) {
     			$$invalidate(5, contentStyle = `
 		${commonStyles}
 		left: ${contentLeft};
@@ -1028,6 +1036,7 @@
     		leftScrimOff,
     		rightScrimOff,
     		$$slots,
+    		updatePanels,
     		mobileBreakpoint,
     		scrimWidth,
     		scrimColor,
@@ -1037,7 +1046,6 @@
     		leftWidth,
     		rightWidth,
     		duration,
-    		updatePanels,
     		windowWidth,
     		leftOpen,
     		leftTransitioning,
@@ -1058,31 +1066,31 @@
     		init(
     			this,
     			options,
-    			instance$2,
-    			create_fragment$2,
+    			instance$3,
+    			create_fragment$3,
     			safe_not_equal,
     			{
-    				mobileBreakpoint: 11,
-    				scrimWidth: 12,
-    				scrimColor: 13,
-    				leftOpenBreakpoint: 14,
-    				rightOpenBreakpoint: 15,
-    				width: 16,
-    				leftWidth: 17,
-    				rightWidth: 18,
-    				duration: 19,
-    				updatePanels: 20
+    				updatePanels: 11,
+    				mobileBreakpoint: 12,
+    				scrimWidth: 13,
+    				scrimColor: 14,
+    				leftOpenBreakpoint: 15,
+    				rightOpenBreakpoint: 16,
+    				width: 17,
+    				leftWidth: 18,
+    				rightWidth: 19,
+    				duration: 20
     			},
     			[-1, -1]
     		);
     	}
 
     	get updatePanels() {
-    		return this.$$.ctx[20];
+    		return this.$$.ctx[11];
     	}
     }
 
-    /* src/demo/DemoContent.svelte generated by Svelte v3.38.3 */
+    /* src/demo/LoremIpsum.svelte generated by Svelte v3.38.3 */
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -1090,7 +1098,7 @@
     	return child_ctx;
     }
 
-    // (42:0) {#each lorem as ipsum}
+    // (49:0) {#each lorem as ipsum}
     function create_each_block(ctx) {
     	let p;
     	let t_value = /*ipsum*/ ctx[5] + "";
@@ -1114,21 +1122,20 @@
     	};
     }
 
-    function create_fragment$1(ctx) {
+    function create_fragment$2(ctx) {
+    	let div7;
+    	let div6;
+    	let div5;
+    	let div4;
+    	let div3;
+    	let div0;
+    	let t2;
     	let div2;
     	let div1;
-    	let p0;
-    	let t3;
-    	let p1;
-    	let t4;
-    	let t5;
-    	let t6;
-    	let t7;
-    	let div0;
     	let button0;
-    	let t9;
+    	let t4;
     	let button1;
-    	let t11;
+    	let t6;
     	let each_1_anchor;
     	let mounted;
     	let dispose;
@@ -1141,54 +1148,62 @@
 
     	return {
     		c() {
+    			div7 = element("div");
+    			div6 = element("div");
+    			div5 = element("div");
+    			div4 = element("div");
+    			div3 = element("div");
+    			div0 = element("div");
+
+    			div0.innerHTML = `Filler
+						<br/>
+						Text`;
+
+    			t2 = space();
     			div2 = element("div");
     			div1 = element("div");
-    			p0 = element("p");
-    			p0.innerHTML = `Filler content generated using <a href="http://officeipsum.com/">OfficeIpsum</a>.`;
-    			t3 = space();
-    			p1 = element("p");
-    			t4 = text("Paragraphs (");
-    			t5 = text(/*count*/ ctx[0]);
-    			t6 = text(")");
-    			t7 = space();
-    			div0 = element("div");
     			button0 = element("button");
     			button0.textContent = "+";
-    			t9 = space();
+    			t4 = space();
     			button1 = element("button");
     			button1.textContent = "-";
-    			t11 = space();
+    			t6 = space();
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
     			each_1_anchor = empty();
+    			attr(div0, "class", "col-auto");
+    			set_style(div0, "margin-top", "-6px");
     			attr(button0, "type", "button");
     			attr(button0, "class", "btn btn-primary");
     			attr(button1, "type", "button");
     			attr(button1, "class", "btn btn-primary");
-    			attr(div0, "class", "btn-group");
-    			attr(div0, "role", "group");
-    			attr(div0, "aria-label", "Toggle panels");
-    			attr(div1, "class", "card-body");
-    			attr(div2, "class", "card mt-3 mb-3");
+    			attr(div1, "class", "btn-group");
+    			attr(div1, "role", "group");
+    			attr(div1, "aria-label", "Toggle panels");
+    			attr(div2, "class", "col-auto");
+    			attr(div3, "class", "row");
+    			attr(div4, "class", "card-body");
+    			attr(div5, "class", "card mt-3 mb-3");
+    			attr(div6, "class", "col-auto");
+    			attr(div7, "class", "row");
     		},
     		m(target, anchor) {
-    			insert(target, div2, anchor);
+    			insert(target, div7, anchor);
+    			append(div7, div6);
+    			append(div6, div5);
+    			append(div5, div4);
+    			append(div4, div3);
+    			append(div3, div0);
+    			append(div3, t2);
+    			append(div3, div2);
     			append(div2, div1);
-    			append(div1, p0);
-    			append(div1, t3);
-    			append(div1, p1);
-    			append(p1, t4);
-    			append(p1, t5);
-    			append(p1, t6);
-    			append(div1, t7);
-    			append(div1, div0);
-    			append(div0, button0);
-    			append(div0, t9);
-    			append(div0, button1);
-    			insert(target, t11, anchor);
+    			append(div1, button0);
+    			append(div1, t4);
+    			append(div1, button1);
+    			insert(target, t6, anchor);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(target, anchor);
@@ -1206,8 +1221,6 @@
     			}
     		},
     		p(ctx, [dirty]) {
-    			if (dirty & /*count*/ 1) set_data(t5, /*count*/ ctx[0]);
-
     			if (dirty & /*lorem*/ 2) {
     				each_value = /*lorem*/ ctx[1];
     				let i;
@@ -1234,8 +1247,8 @@
     		i: noop,
     		o: noop,
     		d(detaching) {
-    			if (detaching) detach(div2);
-    			if (detaching) detach(t11);
+    			if (detaching) detach(div7);
+    			if (detaching) detach(t6);
     			destroy_each(each_blocks, detaching);
     			if (detaching) detach(each_1_anchor);
     			mounted = false;
@@ -1244,7 +1257,7 @@
     	};
     }
 
-    function instance$1($$self, $$props, $$invalidate) {
+    function instance$2($$self, $$props, $$invalidate) {
     	let lorem;
 
     	const longTextThings = [
@@ -1282,10 +1295,212 @@
     	return [count, lorem, click_handler, click_handler_1];
     }
 
-    class DemoContent extends SvelteComponent {
+    class LoremIpsum extends SvelteComponent {
     	constructor(options) {
     		super();
-    		init(this, options, instance$1, create_fragment$1, safe_not_equal, {});
+    		init(this, options, instance$2, create_fragment$2, safe_not_equal, {});
+    	}
+    }
+
+    /* src/demo/DemoControls.svelte generated by Svelte v3.38.3 */
+
+    function create_fragment$1(ctx) {
+    	let div3;
+    	let div2;
+    	let h2;
+    	let t1;
+    	let p0;
+    	let t3;
+    	let h40;
+    	let t5;
+    	let p1;
+    	let t7;
+    	let div0;
+    	let button0;
+    	let t8;
+    	let button0_class_value;
+    	let t9;
+    	let button1;
+    	let t10;
+    	let button1_class_value;
+    	let t11;
+    	let h41;
+    	let t13;
+    	let p2;
+    	let t15;
+    	let div1;
+    	let button2;
+    	let t16;
+    	let button2_class_value;
+    	let t17;
+    	let button3;
+    	let t18;
+    	let button3_class_value;
+    	let mounted;
+    	let dispose;
+
+    	return {
+    		c() {
+    			div3 = element("div");
+    			div2 = element("div");
+    			h2 = element("h2");
+    			h2.textContent = "Controls";
+    			t1 = space();
+    			p0 = element("p");
+    			p0.textContent = "Not all controls are shown or needed, this just demonstrates a few of them.";
+    			t3 = space();
+    			h40 = element("h4");
+    			h40.textContent = "Toggle panel visibility";
+    			t5 = space();
+    			p1 = element("p");
+    			p1.textContent = "Panels are automatically initialized open/closed based on the screen width,\n\t\t\tand automatically open/close if the window is resized. (You can opt out of\n\t\t\tthat behaviour.)";
+    			t7 = space();
+    			div0 = element("div");
+    			button0 = element("button");
+    			t8 = text("Toggle Left");
+    			t9 = space();
+    			button1 = element("button");
+    			t10 = text("Toggle Right");
+    			t11 = space();
+    			h41 = element("h4");
+    			h41.textContent = "Panel animation";
+    			t13 = space();
+    			p2 = element("p");
+    			p2.textContent = "The animation of the panels is quick and subtle, here you\n\t\t\tcan slow it down to check for visual errors.";
+    			t15 = space();
+    			div1 = element("div");
+    			button2 = element("button");
+    			t16 = text("Normal Speed");
+    			t17 = space();
+    			button3 = element("button");
+    			t18 = text("Slow Speed");
+    			attr(button0, "type", "button");
+    			attr(button0, "class", button0_class_value = "btn btn-" + (/*leftOpen*/ ctx[1] ? "primary" : "secondary"));
+    			attr(button1, "type", "button");
+    			attr(button1, "class", button1_class_value = "btn btn-" + (/*rightOpen*/ ctx[2] ? "primary" : "secondary"));
+    			attr(div0, "class", "btn-group");
+    			attr(div0, "role", "group");
+    			attr(div0, "aria-label", "Toggle panels");
+    			attr(h41, "class", "mt-4");
+    			attr(button2, "type", "button");
+    			attr(button2, "class", button2_class_value = "btn btn-" + (/*panelAnimatesSlowly*/ ctx[3] ? "secondary" : "primary"));
+    			attr(button3, "type", "button");
+    			attr(button3, "class", button3_class_value = "btn btn-" + (/*panelAnimatesSlowly*/ ctx[3] ? "primary" : "secondary"));
+    			attr(div1, "class", "btn-group");
+    			attr(div1, "role", "group");
+    			attr(div1, "aria-label", "Toggle panels");
+    			attr(div2, "class", "card-body");
+    			attr(div3, "class", "card");
+    		},
+    		m(target, anchor) {
+    			insert(target, div3, anchor);
+    			append(div3, div2);
+    			append(div2, h2);
+    			append(div2, t1);
+    			append(div2, p0);
+    			append(div2, t3);
+    			append(div2, h40);
+    			append(div2, t5);
+    			append(div2, p1);
+    			append(div2, t7);
+    			append(div2, div0);
+    			append(div0, button0);
+    			append(button0, t8);
+    			append(div0, t9);
+    			append(div0, button1);
+    			append(button1, t10);
+    			append(div2, t11);
+    			append(div2, h41);
+    			append(div2, t13);
+    			append(div2, p2);
+    			append(div2, t15);
+    			append(div2, div1);
+    			append(div1, button2);
+    			append(button2, t16);
+    			append(div1, t17);
+    			append(div1, button3);
+    			append(button3, t18);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen(button0, "click", /*click_handler*/ ctx[5]),
+    					listen(button1, "click", /*click_handler_1*/ ctx[6]),
+    					listen(button2, "click", /*click_handler_2*/ ctx[7]),
+    					listen(button3, "click", /*click_handler_3*/ ctx[8])
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p(ctx, [dirty]) {
+    			if (dirty & /*leftOpen*/ 2 && button0_class_value !== (button0_class_value = "btn btn-" + (/*leftOpen*/ ctx[1] ? "primary" : "secondary"))) {
+    				attr(button0, "class", button0_class_value);
+    			}
+
+    			if (dirty & /*rightOpen*/ 4 && button1_class_value !== (button1_class_value = "btn btn-" + (/*rightOpen*/ ctx[2] ? "primary" : "secondary"))) {
+    				attr(button1, "class", button1_class_value);
+    			}
+
+    			if (dirty & /*panelAnimatesSlowly*/ 8 && button2_class_value !== (button2_class_value = "btn btn-" + (/*panelAnimatesSlowly*/ ctx[3] ? "secondary" : "primary"))) {
+    				attr(button2, "class", button2_class_value);
+    			}
+
+    			if (dirty & /*panelAnimatesSlowly*/ 8 && button3_class_value !== (button3_class_value = "btn btn-" + (/*panelAnimatesSlowly*/ ctx[3] ? "primary" : "secondary"))) {
+    				attr(button3, "class", button3_class_value);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d(detaching) {
+    			if (detaching) detach(div3);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+    }
+
+    function instance$1($$self, $$props, $$invalidate) {
+    	const dispatch = createEventDispatcher();
+    	let { leftOpen } = $$props;
+    	let { rightOpen } = $$props;
+    	let { duration } = $$props;
+    	let panelAnimatesSlowly;
+    	const click_handler = () => dispatch("toggleLeft");
+    	const click_handler_1 = () => dispatch("toggleRight");
+
+    	const click_handler_2 = () => {
+    		$$invalidate(0, duration = "0.08s");
+    		$$invalidate(3, panelAnimatesSlowly = false);
+    	};
+
+    	const click_handler_3 = () => {
+    		$$invalidate(0, duration = "1.5s");
+    		$$invalidate(3, panelAnimatesSlowly = true);
+    	};
+
+    	$$self.$$set = $$props => {
+    		if ("leftOpen" in $$props) $$invalidate(1, leftOpen = $$props.leftOpen);
+    		if ("rightOpen" in $$props) $$invalidate(2, rightOpen = $$props.rightOpen);
+    		if ("duration" in $$props) $$invalidate(0, duration = $$props.duration);
+    	};
+
+    	return [
+    		duration,
+    		leftOpen,
+    		rightOpen,
+    		panelAnimatesSlowly,
+    		dispatch,
+    		click_handler,
+    		click_handler_1,
+    		click_handler_2,
+    		click_handler_3
+    	];
+    }
+
+    class DemoControls extends SvelteComponent {
+    	constructor(options) {
+    		super();
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, { leftOpen: 1, rightOpen: 2, duration: 0 });
     	}
     }
 
@@ -1293,206 +1508,170 @@
 
     function create_left_slot(ctx) {
     	let div;
-    	let democontent;
+    	let loremipsum;
     	let current;
-    	democontent = new DemoContent({});
+    	loremipsum = new LoremIpsum({});
 
     	return {
     		c() {
     			div = element("div");
-    			create_component(democontent.$$.fragment);
+    			create_component(loremipsum.$$.fragment);
     			attr(div, "slot", "left");
-    			attr(div, "class", "svelte-qjnj3f");
+    			attr(div, "class", "svelte-yujmb0");
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
-    			mount_component(democontent, div, null);
+    			mount_component(loremipsum, div, null);
     			current = true;
     		},
     		i(local) {
     			if (current) return;
-    			transition_in(democontent.$$.fragment, local);
+    			transition_in(loremipsum.$$.fragment, local);
     			current = true;
     		},
     		o(local) {
-    			transition_out(democontent.$$.fragment, local);
+    			transition_out(loremipsum.$$.fragment, local);
     			current = false;
     		},
     		d(detaching) {
     			if (detaching) detach(div);
-    			destroy_component(democontent);
+    			destroy_component(loremipsum);
     		}
     	};
     }
 
-    // (34:1) 
+    // (55:1) 
     function create_right_slot(ctx) {
     	let div;
-    	let democontent;
+    	let loremipsum;
     	let current;
-    	democontent = new DemoContent({});
+    	loremipsum = new LoremIpsum({});
 
     	return {
     		c() {
     			div = element("div");
-    			create_component(democontent.$$.fragment);
+    			create_component(loremipsum.$$.fragment);
     			attr(div, "slot", "right");
-    			attr(div, "class", "svelte-qjnj3f");
+    			attr(div, "class", "svelte-yujmb0");
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
-    			mount_component(democontent, div, null);
+    			mount_component(loremipsum, div, null);
     			current = true;
     		},
     		i(local) {
     			if (current) return;
-    			transition_in(democontent.$$.fragment, local);
+    			transition_in(loremipsum.$$.fragment, local);
     			current = true;
     		},
     		o(local) {
-    			transition_out(democontent.$$.fragment, local);
+    			transition_out(loremipsum.$$.fragment, local);
     			current = false;
     		},
     		d(detaching) {
     			if (detaching) detach(div);
-    			destroy_component(democontent);
+    			destroy_component(loremipsum);
     		}
     	};
     }
 
-    // (37:1) 
+    // (58:1) 
     function create_content_slot(ctx) {
-    	let div3;
+    	let div1;
+    	let div0;
     	let h1;
     	let t1;
     	let p0;
     	let t3;
-    	let div2;
-    	let div1;
-    	let h2;
-    	let t5;
     	let p1;
     	let t7;
-    	let h4;
-    	let t9;
-    	let p2;
-    	let t11;
-    	let div0;
-    	let button0;
-    	let t12;
-    	let button0_class_value;
-    	let t13;
-    	let button1;
-    	let t14;
-    	let button1_class_value;
-    	let t15;
-    	let democontent;
+    	let democontrols;
+    	let updating_duration;
+    	let t8;
+    	let loremipsum;
     	let current;
-    	let mounted;
-    	let dispose;
-    	democontent = new DemoContent({});
+
+    	function democontrols_duration_binding(value) {
+    		/*democontrols_duration_binding*/ ctx[4](value);
+    	}
+
+    	let democontrols_props = {
+    		leftOpen: /*leftOpen*/ ctx[0],
+    		rightOpen: /*rightOpen*/ ctx[1]
+    	};
+
+    	if (/*duration*/ ctx[2] !== void 0) {
+    		democontrols_props.duration = /*duration*/ ctx[2];
+    	}
+
+    	democontrols = new DemoControls({ props: democontrols_props });
+    	binding_callbacks.push(() => bind(democontrols, "duration", democontrols_duration_binding));
+    	democontrols.$on("toggleLeft", /*toggleLeft_handler*/ ctx[5]);
+    	democontrols.$on("toggleRight", /*toggleRight_handler*/ ctx[6]);
+    	loremipsum = new LoremIpsum({});
 
     	return {
     		c() {
-    			div3 = element("div");
+    			div1 = element("div");
+    			div0 = element("div");
     			h1 = element("h1");
     			h1.textContent = "Svelte Sidebar Panels";
     			t1 = space();
     			p0 = element("p");
     			p0.textContent = "Intro text.";
     			t3 = space();
-    			div2 = element("div");
-    			div1 = element("div");
-    			h2 = element("h2");
-    			h2.textContent = "Controls";
-    			t5 = space();
     			p1 = element("p");
-    			p1.textContent = "Not all controls are shown or needed, this just demonstrates a few of them.";
+    			p1.innerHTML = `Filler content generated using <a href="http://officeipsum.com/">OfficeIpsum</a>.`;
     			t7 = space();
-    			h4 = element("h4");
-    			h4.textContent = "Toggle panel visibility";
-    			t9 = space();
-    			p2 = element("p");
-    			p2.textContent = "Panels are automatically initialized open/closed based on the screen width,\n\t\t\t\t\tand automatically open/close if the window is resized. (You can opt out of\n\t\t\t\t\tthat behaviour.)";
-    			t11 = space();
-    			div0 = element("div");
-    			button0 = element("button");
-    			t12 = text("Toggle Left");
-    			t13 = space();
-    			button1 = element("button");
-    			t14 = text("Toggle Right");
-    			t15 = space();
-    			create_component(democontent.$$.fragment);
-    			attr(button0, "type", "button");
-    			attr(button0, "class", button0_class_value = "btn btn-" + (/*leftOpen*/ ctx[0] ? "primary" : "secondary"));
-    			attr(button1, "type", "button");
-    			attr(button1, "class", button1_class_value = "btn btn-" + (/*rightOpen*/ ctx[1] ? "primary" : "secondary"));
-    			attr(div0, "class", "btn-group");
-    			attr(div0, "role", "group");
-    			attr(div0, "aria-label", "Toggle panels");
-    			attr(div1, "class", "card-body");
-    			attr(div2, "class", "card");
-    			attr(div3, "slot", "content");
-    			attr(div3, "class", "container svelte-qjnj3f");
+    			create_component(democontrols.$$.fragment);
+    			t8 = space();
+    			create_component(loremipsum.$$.fragment);
+    			attr(div0, "class", "container");
+    			attr(div1, "slot", "content");
+    			attr(div1, "class", "svelte-yujmb0");
     		},
     		m(target, anchor) {
-    			insert(target, div3, anchor);
-    			append(div3, h1);
-    			append(div3, t1);
-    			append(div3, p0);
-    			append(div3, t3);
-    			append(div3, div2);
-    			append(div2, div1);
-    			append(div1, h2);
-    			append(div1, t5);
-    			append(div1, p1);
-    			append(div1, t7);
-    			append(div1, h4);
-    			append(div1, t9);
-    			append(div1, p2);
-    			append(div1, t11);
+    			insert(target, div1, anchor);
     			append(div1, div0);
-    			append(div0, button0);
-    			append(button0, t12);
-    			append(div0, t13);
-    			append(div0, button1);
-    			append(button1, t14);
-    			append(div3, t15);
-    			mount_component(democontent, div3, null);
+    			append(div0, h1);
+    			append(div0, t1);
+    			append(div0, p0);
+    			append(div0, t3);
+    			append(div0, p1);
+    			append(div0, t7);
+    			mount_component(democontrols, div0, null);
+    			append(div0, t8);
+    			mount_component(loremipsum, div0, null);
     			current = true;
-
-    			if (!mounted) {
-    				dispose = [
-    					listen(button0, "click", /*click_handler*/ ctx[4]),
-    					listen(button1, "click", /*click_handler_1*/ ctx[5])
-    				];
-
-    				mounted = true;
-    			}
     		},
     		p(ctx, dirty) {
-    			if (!current || dirty & /*leftOpen*/ 1 && button0_class_value !== (button0_class_value = "btn btn-" + (/*leftOpen*/ ctx[0] ? "primary" : "secondary"))) {
-    				attr(button0, "class", button0_class_value);
+    			const democontrols_changes = {};
+    			if (dirty & /*leftOpen*/ 1) democontrols_changes.leftOpen = /*leftOpen*/ ctx[0];
+    			if (dirty & /*rightOpen*/ 2) democontrols_changes.rightOpen = /*rightOpen*/ ctx[1];
+
+    			if (!updating_duration && dirty & /*duration*/ 4) {
+    				updating_duration = true;
+    				democontrols_changes.duration = /*duration*/ ctx[2];
+    				add_flush_callback(() => updating_duration = false);
     			}
 
-    			if (!current || dirty & /*rightOpen*/ 2 && button1_class_value !== (button1_class_value = "btn btn-" + (/*rightOpen*/ ctx[1] ? "primary" : "secondary"))) {
-    				attr(button1, "class", button1_class_value);
-    			}
+    			democontrols.$set(democontrols_changes);
     		},
     		i(local) {
     			if (current) return;
-    			transition_in(democontent.$$.fragment, local);
+    			transition_in(democontrols.$$.fragment, local);
+    			transition_in(loremipsum.$$.fragment, local);
     			current = true;
     		},
     		o(local) {
-    			transition_out(democontent.$$.fragment, local);
+    			transition_out(democontrols.$$.fragment, local);
+    			transition_out(loremipsum.$$.fragment, local);
     			current = false;
     		},
     		d(detaching) {
-    			if (detaching) detach(div3);
-    			destroy_component(democontent);
-    			mounted = false;
-    			run_all(dispose);
+    			if (detaching) detach(div1);
+    			destroy_component(democontrols);
+    			destroy_component(loremipsum);
     		}
     	};
     }
@@ -1503,11 +1682,11 @@
     	let current;
 
     	function sidebarpanels_updatePanels_binding(value) {
-    		/*sidebarpanels_updatePanels_binding*/ ctx[6](value);
+    		/*sidebarpanels_updatePanels_binding*/ ctx[7](value);
     	}
 
     	let sidebarpanels_props = {
-    		duration: /*duration*/ ctx[3],
+    		duration: /*duration*/ ctx[2],
     		$$slots: {
     			content: [create_content_slot],
     			right: [create_right_slot],
@@ -1516,13 +1695,13 @@
     		$$scope: { ctx }
     	};
 
-    	if (/*updatePanels*/ ctx[2] !== void 0) {
-    		sidebarpanels_props.updatePanels = /*updatePanels*/ ctx[2];
+    	if (/*updatePanels*/ ctx[3] !== void 0) {
+    		sidebarpanels_props.updatePanels = /*updatePanels*/ ctx[3];
     	}
 
     	sidebarpanels = new SidebarPanels({ props: sidebarpanels_props });
     	binding_callbacks.push(() => bind(sidebarpanels, "updatePanels", sidebarpanels_updatePanels_binding));
-    	sidebarpanels.$on("change", /*change_handler*/ ctx[7]);
+    	sidebarpanels.$on("change", /*change_handler*/ ctx[8]);
 
     	return {
     		c() {
@@ -1534,14 +1713,15 @@
     		},
     		p(ctx, [dirty]) {
     			const sidebarpanels_changes = {};
+    			if (dirty & /*duration*/ 4) sidebarpanels_changes.duration = /*duration*/ ctx[2];
 
-    			if (dirty & /*$$scope, rightOpen, updatePanels, leftOpen*/ 263) {
+    			if (dirty & /*$$scope, leftOpen, rightOpen, duration, updatePanels*/ 527) {
     				sidebarpanels_changes.$$scope = { dirty, ctx };
     			}
 
-    			if (!updating_updatePanels && dirty & /*updatePanels*/ 4) {
+    			if (!updating_updatePanels && dirty & /*updatePanels*/ 8) {
     				updating_updatePanels = true;
-    				sidebarpanels_changes.updatePanels = /*updatePanels*/ ctx[2];
+    				sidebarpanels_changes.updatePanels = /*updatePanels*/ ctx[3];
     				add_flush_callback(() => updating_updatePanels = false);
     			}
 
@@ -1568,17 +1748,22 @@
     	let duration = undefined;
     	let updatePanels;
 
-    	const click_handler = () => {
+    	function democontrols_duration_binding(value) {
+    		duration = value;
+    		$$invalidate(2, duration);
+    	}
+
+    	const toggleLeft_handler = () => {
     		updatePanels({ left: !leftOpen });
     	};
 
-    	const click_handler_1 = () => {
+    	const toggleRight_handler = () => {
     		updatePanels({ right: !rightOpen });
     	};
 
     	function sidebarpanels_updatePanels_binding(value) {
     		updatePanels = value;
-    		$$invalidate(2, updatePanels);
+    		$$invalidate(3, updatePanels);
     	}
 
     	const change_handler = ({ detail: { left, right } }) => {
@@ -1589,10 +1774,11 @@
     	return [
     		leftOpen,
     		rightOpen,
-    		updatePanels,
     		duration,
-    		click_handler,
-    		click_handler_1,
+    		updatePanels,
+    		democontrols_duration_binding,
+    		toggleLeft_handler,
+    		toggleRight_handler,
     		sidebarpanels_updatePanels_binding,
     		change_handler
     	];

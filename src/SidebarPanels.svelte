@@ -2,6 +2,15 @@
 	import { createEventDispatcher, onMount } from 'svelte'
 	const dispatch = createEventDispatcher()
 
+	// To manually toggle the panels externally, e.g. your navigation
+	// menu buttons, bind to this function and call it with whatever
+	// panel you want to update. Setting left/right to undefined will
+	// leave that panel unchanged. (See the demo for an example.)
+	export const updatePanels = ({ left, right }) => {
+		if (left !== undefined) { setLeft(!!left) }
+		if (right !== undefined) { setRight(!!right) }
+	}
+
 	// The mobile breakpoint determines at what screen width to shift to mobile
 	// behaviour. The two big changes are: 1) only the left or right panel are
 	// allowed to be open, making one visible will hide the other, and 2) the
@@ -39,7 +48,7 @@
 
 	// You can either set an overall width, or different widths for the left and
 	// right panels. The width can be a string of any valid CSS "width" value.
-	export let width = '200px'
+	export let width = '250px'
 	export let leftWidth
 	export let rightWidth
 
@@ -50,12 +59,6 @@
 	// devices and with different application setups, and is the best compromise between
 	// the too-slow/too-fast times.
 	export let duration = '0.08s'
-
-	//
-	export const updatePanels = ({ left, right }) => {
-		if (left !== undefined) { setLeft(!!left) }
-		if (right !== undefined) { setRight(!!right) }
-	}
 
 	let windowWidth
 	let leftOpen
@@ -147,12 +150,12 @@ to slide to the left/right to expose the panel underneath.
 -->
 
 {#if $$slots.left}
-	<div style="{leftMenuStyle}">
+	<div style="{leftMenuStyle}" class="sidebar-panel sidebar-panel-left">
 		<slot name="left" />
 	</div>
 {/if}
 
-<div style={contentStyle} on:transitionend={onTransitionEnd}>
+<div style={contentStyle} on:transitionend={onTransitionEnd} class="sidebar-content">
 	{#if $$slots.left && mobileMode}
 		<div style={leftScrimStyle} on:click={leftScrimOff} />
 	{/if}
@@ -163,7 +166,7 @@ to slide to the left/right to expose the panel underneath.
 </div>
 
 {#if $$slots.right}
-	<div style="{rightMenuStyle}">
+	<div style="{rightMenuStyle}" class="sidebar-panel sidebar-panel-left">
 		<slot name="right" />
 	</div>
 {/if}
