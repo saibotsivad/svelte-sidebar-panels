@@ -15,20 +15,20 @@
 	These styles are not necessary to make the component function correctly, they are
 	only here to make the demo prettier.
 	*/
-	:global(body) {
-		background-color: #d5d5d5;
-	}
 	div[slot="left"] {
 		padding: 15px;
 		min-height: 100%;
+		background-color: #d5d5d5;
 	}
 	div[slot="right"] {
 		padding: 15px;
 		min-height: 100%;
+		background-color: #d5d5d5;
 	}
 	div[slot="content"] {
 		padding: 15px;
 		min-height: 100%;
+		background-color: #d5d5d5;
 	}
 </style>
 

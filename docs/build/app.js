@@ -1,5 +1,3 @@
-
-(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(window.document);
 (function () {
     'use strict';
 
@@ -1525,7 +1523,7 @@
     			t1 = space();
     			create_component(loremipsum.$$.fragment);
     			attr(div, "slot", "left");
-    			attr(div, "class", "svelte-7rpx18");
+    			attr(div, "class", "svelte-zgo1y0");
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -1567,7 +1565,7 @@
     			t1 = space();
     			create_component(loremipsum.$$.fragment);
     			attr(div, "slot", "right");
-    			attr(div, "class", "svelte-7rpx18");
+    			attr(div, "class", "svelte-zgo1y0");
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -1645,7 +1643,7 @@
     			create_component(loremipsum.$$.fragment);
     			attr(div0, "class", "container");
     			attr(div1, "slot", "content");
-    			attr(div1, "class", "svelte-7rpx18");
+    			attr(div1, "class", "svelte-zgo1y0");
     		},
     		m(target, anchor) {
     			insert(target, div1, anchor);
