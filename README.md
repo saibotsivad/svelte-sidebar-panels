@@ -1,4 +1,4 @@
-# svelte-sidebar-navigation-menu
+# svelte-sidebar-panels
 
 Sidebar navigational panels.
 

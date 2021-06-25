@@ -1,7 +1,7 @@
 {
-  "name": "svelte-sidebar-navigation-menu",
+  "name": "svelte-sidebar-panels",
   "version": "0.0.0",
-  "description": "Sidebar navigational menu component. Looks good on all sizes of screens. Accessibility features.",
+  "description": "Svelte sidebar navigational menu component.",
   "svelte": "src/index.js",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/saibotsivad/svelte-sidebar-navigation-menu.git"
+    "url": "git+https://github.com/saibotsivad/svelte-sidebar-panels.git"
   },
   "keywords": [
     "svelte",
@@ -27,9 +27,9 @@
   "author": "saibotsivad",
   "license": "VOL",
   "bugs": {
-    "url": "https://github.com/saibotsivad/svelte-sidebar-navigation-menu/issues"
+    "url": "https://github.com/saibotsivad/svelte-sidebar-panels/issues"
   },
-  "homepage": "https://github.com/saibotsivad/svelte-sidebar-navigation-menu#readme",
+  "homepage": "https://github.com/saibotsivad/svelte-sidebar-panels#readme",
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.0.0",
     "rollup": "^2.52.2",

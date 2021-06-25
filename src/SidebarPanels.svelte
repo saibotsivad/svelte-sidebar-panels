@@ -24,8 +24,9 @@
 	// a scrim (named after the theater drop), so that tapping it closes the panel.
 	// You'll want to make sure this touch area is wide enough that people can
 	// easily and accurately touch it. For minimums, Apple suggests 44px, Microsoft 24px,
-	// Nokia 28px, Android 48px. In my experience, 50px is pretty solid.
-	export let scrimWidth = '50px'
+	// Nokia 28px, Android 48px. In my experience, these are all way too small for
+	// comfortable navigation.
+	export let scrimWidth = '70px'
 
 	// The scrim is given 50% opacity, so the content panel is still visible. You
 	// can use the scrim color to re-brand the scrim, or to change to light/dark.
@@ -60,6 +61,8 @@
 	// the too-slow/too-fast times.
 	export let duration = '0.08s'
 
+	// =============== end of exports ===============
+
 	let windowWidth
 	let leftOpen
 	let leftTransitioning
@@ -76,7 +79,7 @@
 		rightTransitioning = transition
 	}
 
-	const onTransitionEnd = ({ propertyName }) => {
+	const onTransitionEnd = () => {
 		leftTransitioning = false
 		rightTransitioning = false
 		dispatch('change', { left: leftOpen, right: rightOpen })
@@ -157,11 +160,11 @@ to slide to the left/right to expose the panel underneath.
 
 <div style={contentStyle} on:transitionend={onTransitionEnd} class="sidebar-content">
 	{#if $$slots.left && mobileMode}
-		<div style={leftScrimStyle} on:click={leftScrimOff} />
+		<div style={leftScrimStyle} on:click={leftScrimOff}></div>
 	{/if}
 	<slot name="content" />
 	{#if $$slots.right && mobileMode}
-		<div style={rightScrimStyle} on:click={rightScrimOff} />
+		<div style={rightScrimStyle} on:click={rightScrimOff}></div>
 	{/if}
 </div>
 
