@@ -18,17 +18,17 @@
 	div[slot="left"] {
 		padding: 15px;
 		min-height: 100%;
-		background-color: #d5d5d5;
+		background-color: #ececec;
 	}
 	div[slot="right"] {
 		padding: 15px;
 		min-height: 100%;
-		background-color: #d5d5d5;
+		background-color: #ececec;
 	}
 	div[slot="content"] {
 		padding: 15px;
 		min-height: 100%;
-		background-color: #d5d5d5;
+		background-color: #ececec;
 	}
 </style>
 
