@@ -517,7 +517,7 @@
     const get_left_slot_changes = dirty => ({});
     const get_left_slot_context = ctx => ({});
 
-    // (152:0) {#if $$slots.left}
+    // (155:0) {#if $$slots.left}
     function create_if_block_3(ctx) {
     	let div;
     	let current;
@@ -567,7 +567,7 @@
     	};
     }
 
-    // (159:1) {#if $$slots.left && mobileMode}
+    // (162:1) {#if $$slots.left && mobileMode}
     function create_if_block_2(ctx) {
     	let div;
     	let mounted;
@@ -599,7 +599,7 @@
     	};
     }
 
-    // (163:1) {#if $$slots.right && mobileMode}
+    // (166:1) {#if $$slots.right && mobileMode}
     function create_if_block_1(ctx) {
     	let div;
     	let mounted;
@@ -631,7 +631,7 @@
     	};
     }
 
-    // (168:0) {#if $$slots.right}
+    // (171:0) {#if $$slots.right}
     function create_if_block(ctx) {
     	let div;
     	let current;
@@ -878,7 +878,7 @@
     	};
 
     	let { mobileBreakpoint = 500 } = $$props;
-    	let { scrimWidth = "50px" } = $$props;
+    	let { scrimWidth = "70px" } = $$props;
     	let { scrimColor = "#444" } = $$props;
     	let { leftOpenBreakpoint = 768 } = $$props;
     	let { rightOpenBreakpoint = 1200 } = $$props;
@@ -886,7 +886,10 @@
     	let { leftWidth } = $$props;
     	let { rightWidth } = $$props;
     	let { duration = "0.08s" } = $$props;
+
+    	// =============== end of exports ===============
     	let windowWidth;
+
     	let leftOpen;
     	let leftTransitioning;
     	let rightOpen;
@@ -902,7 +905,7 @@
     		$$invalidate(25, rightTransitioning = transition);
     	};
 
-    	const onTransitionEnd = ({ propertyName }) => {
+    	const onTransitionEnd = () => {
     		$$invalidate(23, leftTransitioning = false);
     		$$invalidate(25, rightTransitioning = false);
     		dispatch("change", { left: leftOpen, right: rightOpen });
@@ -1508,6 +1511,8 @@
 
     function create_left_slot(ctx) {
     	let div;
+    	let h2;
+    	let t1;
     	let loremipsum;
     	let current;
     	loremipsum = new LoremIpsum({});
@@ -1515,12 +1520,17 @@
     	return {
     		c() {
     			div = element("div");
+    			h2 = element("h2");
+    			h2.textContent = "Left Sidebar";
+    			t1 = space();
     			create_component(loremipsum.$$.fragment);
     			attr(div, "slot", "left");
-    			attr(div, "class", "svelte-yujmb0");
+    			attr(div, "class", "svelte-7rpx18");
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
+    			append(div, h2);
+    			append(div, t1);
     			mount_component(loremipsum, div, null);
     			current = true;
     		},
@@ -1540,9 +1550,11 @@
     	};
     }
 
-    // (55:1) 
+    // (40:1) 
     function create_right_slot(ctx) {
     	let div;
+    	let h2;
+    	let t1;
     	let loremipsum;
     	let current;
     	loremipsum = new LoremIpsum({});
@@ -1550,12 +1562,17 @@
     	return {
     		c() {
     			div = element("div");
+    			h2 = element("h2");
+    			h2.textContent = "Right Sidebar";
+    			t1 = space();
     			create_component(loremipsum.$$.fragment);
     			attr(div, "slot", "right");
-    			attr(div, "class", "svelte-yujmb0");
+    			attr(div, "class", "svelte-7rpx18");
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
+    			append(div, h2);
+    			append(div, t1);
     			mount_component(loremipsum, div, null);
     			current = true;
     		},
@@ -1575,7 +1592,7 @@
     	};
     }
 
-    // (58:1) 
+    // (44:1) 
     function create_content_slot(ctx) {
     	let div1;
     	let div0;
@@ -1628,7 +1645,7 @@
     			create_component(loremipsum.$$.fragment);
     			attr(div0, "class", "container");
     			attr(div1, "slot", "content");
-    			attr(div1, "class", "svelte-yujmb0");
+    			attr(div1, "class", "svelte-7rpx18");
     		},
     		m(target, anchor) {
     			insert(target, div1, anchor);
