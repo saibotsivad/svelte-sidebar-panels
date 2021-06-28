@@ -79,10 +79,12 @@
 		rightTransitioning = transition
 	}
 
-	const onTransitionEnd = () => {
-		leftTransitioning = false
-		rightTransitioning = false
-		dispatch('change', { left: leftOpen, right: rightOpen })
+	const onTransitionEnd = ({ propertyName }) => {
+		if (propertyName === 'left' || propertyName === 'width') {
+			leftTransitioning = false
+			rightTransitioning = false
+			dispatch('change', { left: leftOpen, right: rightOpen })
+		}
 	}
 
 	const setPanelStates = transition => () => {
@@ -120,9 +122,9 @@
 
 	const makeScrimStyle = (side, open, transitioning, color) => `
 		${commonStyles}
-		${side}: 0;
+		${side}: calc(100% - ${scrimWidth});
 		width: ${scrimWidth};
-		z-index: ${open ? '4' : '-1'};
+		z-index: ${open && !transitioning ? '5' : '-1'};
 		opacity: ${open && !transitioning && '0.5' || '0'};
 		background-color: ${color};
 	`
@@ -152,24 +154,28 @@ a handful of UX tests performed on non-technical internet users. The content sho
 to slide to the left/right to expose the panel underneath.
 -->
 
-{#if $$slots.left}
-	<div style="{leftMenuStyle}" class="sidebar-panel sidebar-panel-left">
-		<slot name="left" />
-	</div>
-{/if}
+<div style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; overflow-x: hidden;">
+	{#if $$slots.left}
+		<div style="{leftMenuStyle}">
+			<slot name="left" />
+		</div>
+	{/if}
 
-<div style={contentStyle} on:transitionend={onTransitionEnd} class="sidebar-content">
+	<div style={contentStyle} on:transitionend={onTransitionEnd}>
+		<slot name="content" />
+	</div>
+
+	{#if $$slots.right}
+		<div style="{rightMenuStyle}">
+			<slot name="right" />
+		</div>
+	{/if}
+
 	{#if $$slots.left && mobileMode}
 		<div style={leftScrimStyle} on:click={leftScrimOff}></div>
 	{/if}
-	<slot name="content" />
+
 	{#if $$slots.right && mobileMode}
 		<div style={rightScrimStyle} on:click={rightScrimOff}></div>
 	{/if}
 </div>
-
-{#if $$slots.right}
-	<div style="{rightMenuStyle}" class="sidebar-panel sidebar-panel-left">
-		<slot name="right" />
-	</div>
-{/if}

@@ -33,4 +33,4 @@ export default [
 			watch && livereload('docs/build'),
 		]
 	}
-]
+].filter(Boolean)

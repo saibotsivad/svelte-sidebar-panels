@@ -515,7 +515,7 @@
     const get_left_slot_changes = dirty => ({});
     const get_left_slot_context = ctx => ({});
 
-    // (155:0) {#if $$slots.left}
+    // (158:1) {#if $$slots.left}
     function create_if_block_3(ctx) {
     	let div;
     	let current;
@@ -527,7 +527,6 @@
     			div = element("div");
     			if (left_slot) left_slot.c();
     			attr(div, "style", /*leftMenuStyle*/ ctx[1]);
-    			attr(div, "class", "sidebar-panel sidebar-panel-left");
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -565,72 +564,8 @@
     	};
     }
 
-    // (162:1) {#if $$slots.left && mobileMode}
+    // (168:1) {#if $$slots.right}
     function create_if_block_2(ctx) {
-    	let div;
-    	let mounted;
-    	let dispose;
-
-    	return {
-    		c() {
-    			div = element("div");
-    			attr(div, "style", /*leftScrimStyle*/ ctx[3]);
-    		},
-    		m(target, anchor) {
-    			insert(target, div, anchor);
-
-    			if (!mounted) {
-    				dispose = listen(div, "click", /*leftScrimOff*/ ctx[8]);
-    				mounted = true;
-    			}
-    		},
-    		p(ctx, dirty) {
-    			if (dirty[0] & /*leftScrimStyle*/ 8) {
-    				attr(div, "style", /*leftScrimStyle*/ ctx[3]);
-    			}
-    		},
-    		d(detaching) {
-    			if (detaching) detach(div);
-    			mounted = false;
-    			dispose();
-    		}
-    	};
-    }
-
-    // (166:1) {#if $$slots.right && mobileMode}
-    function create_if_block_1(ctx) {
-    	let div;
-    	let mounted;
-    	let dispose;
-
-    	return {
-    		c() {
-    			div = element("div");
-    			attr(div, "style", /*rightScrimStyle*/ ctx[4]);
-    		},
-    		m(target, anchor) {
-    			insert(target, div, anchor);
-
-    			if (!mounted) {
-    				dispose = listen(div, "click", /*rightScrimOff*/ ctx[9]);
-    				mounted = true;
-    			}
-    		},
-    		p(ctx, dirty) {
-    			if (dirty[0] & /*rightScrimStyle*/ 16) {
-    				attr(div, "style", /*rightScrimStyle*/ ctx[4]);
-    			}
-    		},
-    		d(detaching) {
-    			if (detaching) detach(div);
-    			mounted = false;
-    			dispose();
-    		}
-    	};
-    }
-
-    // (171:0) {#if $$slots.right}
-    function create_if_block(ctx) {
     	let div;
     	let current;
     	const right_slot_template = /*#slots*/ ctx[30].right;
@@ -641,7 +576,6 @@
     			div = element("div");
     			if (right_slot) right_slot.c();
     			attr(div, "style", /*rightMenuStyle*/ ctx[2]);
-    			attr(div, "class", "sidebar-panel sidebar-panel-left");
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -679,61 +613,130 @@
     	};
     }
 
-    function create_fragment$3(ctx) {
-    	let t0;
+    // (174:1) {#if $$slots.left && mobileMode}
+    function create_if_block_1(ctx) {
     	let div;
+    	let mounted;
+    	let dispose;
+
+    	return {
+    		c() {
+    			div = element("div");
+    			attr(div, "style", /*leftScrimStyle*/ ctx[3]);
+    		},
+    		m(target, anchor) {
+    			insert(target, div, anchor);
+
+    			if (!mounted) {
+    				dispose = listen(div, "click", /*leftScrimOff*/ ctx[8]);
+    				mounted = true;
+    			}
+    		},
+    		p(ctx, dirty) {
+    			if (dirty[0] & /*leftScrimStyle*/ 8) {
+    				attr(div, "style", /*leftScrimStyle*/ ctx[3]);
+    			}
+    		},
+    		d(detaching) {
+    			if (detaching) detach(div);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+    }
+
+    // (178:1) {#if $$slots.right && mobileMode}
+    function create_if_block(ctx) {
+    	let div;
+    	let mounted;
+    	let dispose;
+
+    	return {
+    		c() {
+    			div = element("div");
+    			attr(div, "style", /*rightScrimStyle*/ ctx[4]);
+    		},
+    		m(target, anchor) {
+    			insert(target, div, anchor);
+
+    			if (!mounted) {
+    				dispose = listen(div, "click", /*rightScrimOff*/ ctx[9]);
+    				mounted = true;
+    			}
+    		},
+    		p(ctx, dirty) {
+    			if (dirty[0] & /*rightScrimStyle*/ 16) {
+    				attr(div, "style", /*rightScrimStyle*/ ctx[4]);
+    			}
+    		},
+    		d(detaching) {
+    			if (detaching) detach(div);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+    }
+
+    function create_fragment$3(ctx) {
+    	let div1;
+    	let t0;
+    	let div0;
     	let t1;
     	let t2;
     	let t3;
-    	let if_block3_anchor;
     	let current;
     	let mounted;
     	let dispose;
     	let if_block0 = /*$$slots*/ ctx[10].left && create_if_block_3(ctx);
-    	let if_block1 = /*$$slots*/ ctx[10].left && /*mobileMode*/ ctx[0] && create_if_block_2(ctx);
     	const content_slot_template = /*#slots*/ ctx[30].content;
     	const content_slot = create_slot(content_slot_template, ctx, /*$$scope*/ ctx[29], get_content_slot_context);
-    	let if_block2 = /*$$slots*/ ctx[10].right && /*mobileMode*/ ctx[0] && create_if_block_1(ctx);
-    	let if_block3 = /*$$slots*/ ctx[10].right && create_if_block(ctx);
+    	let if_block1 = /*$$slots*/ ctx[10].right && create_if_block_2(ctx);
+    	let if_block2 = /*$$slots*/ ctx[10].left && /*mobileMode*/ ctx[0] && create_if_block_1(ctx);
+    	let if_block3 = /*$$slots*/ ctx[10].right && /*mobileMode*/ ctx[0] && create_if_block(ctx);
 
     	return {
     		c() {
+    			div1 = element("div");
     			if (if_block0) if_block0.c();
     			t0 = space();
-    			div = element("div");
-    			if (if_block1) if_block1.c();
-    			t1 = space();
+    			div0 = element("div");
     			if (content_slot) content_slot.c();
+    			t1 = space();
+    			if (if_block1) if_block1.c();
     			t2 = space();
     			if (if_block2) if_block2.c();
     			t3 = space();
     			if (if_block3) if_block3.c();
-    			if_block3_anchor = empty();
-    			attr(div, "style", /*contentStyle*/ ctx[5]);
-    			attr(div, "class", "sidebar-content");
+    			attr(div0, "style", /*contentStyle*/ ctx[5]);
+    			set_style(div1, "position", "absolute");
+    			set_style(div1, "top", "0");
+    			set_style(div1, "bottom", "0");
+    			set_style(div1, "left", "0");
+    			set_style(div1, "right", "0");
+    			set_style(div1, "overflow-x", "hidden");
     		},
     		m(target, anchor) {
-    			if (if_block0) if_block0.m(target, anchor);
-    			insert(target, t0, anchor);
-    			insert(target, div, anchor);
-    			if (if_block1) if_block1.m(div, null);
-    			append(div, t1);
+    			insert(target, div1, anchor);
+    			if (if_block0) if_block0.m(div1, null);
+    			append(div1, t0);
+    			append(div1, div0);
 
     			if (content_slot) {
-    				content_slot.m(div, null);
+    				content_slot.m(div0, null);
     			}
 
-    			append(div, t2);
-    			if (if_block2) if_block2.m(div, null);
-    			insert(target, t3, anchor);
-    			if (if_block3) if_block3.m(target, anchor);
-    			insert(target, if_block3_anchor, anchor);
+    			append(div1, t1);
+    			if (if_block1) if_block1.m(div1, null);
+    			append(div1, t2);
+    			if (if_block2) if_block2.m(div1, null);
+    			append(div1, t3);
+    			if (if_block3) if_block3.m(div1, null);
     			current = true;
 
     			if (!mounted) {
     				dispose = [
     					listen(window_1, "resize", /*setPanelStates*/ ctx[7](true)),
-    					listen(div, "transitionend", /*onTransitionEnd*/ ctx[6])
+    					listen(div0, "transitionend", /*onTransitionEnd*/ ctx[6])
     				];
 
     				mounted = true;
@@ -751,7 +754,7 @@
     					if_block0 = create_if_block_3(ctx);
     					if_block0.c();
     					transition_in(if_block0, 1);
-    					if_block0.m(t0.parentNode, t0);
+    					if_block0.m(div1, t0);
     				}
     			} else if (if_block0) {
     				group_outros();
@@ -763,88 +766,85 @@
     				check_outros();
     			}
 
-    			if (/*$$slots*/ ctx[10].left && /*mobileMode*/ ctx[0]) {
-    				if (if_block1) {
-    					if_block1.p(ctx, dirty);
-    				} else {
-    					if_block1 = create_if_block_2(ctx);
-    					if_block1.c();
-    					if_block1.m(div, t1);
-    				}
-    			} else if (if_block1) {
-    				if_block1.d(1);
-    				if_block1 = null;
-    			}
-
     			if (content_slot) {
     				if (content_slot.p && (!current || dirty[0] & /*$$scope*/ 536870912)) {
     					update_slot(content_slot, content_slot_template, ctx, /*$$scope*/ ctx[29], !current ? [-1, -1] : dirty, get_content_slot_changes, get_content_slot_context);
     				}
     			}
 
-    			if (/*$$slots*/ ctx[10].right && /*mobileMode*/ ctx[0]) {
+    			if (!current || dirty[0] & /*contentStyle*/ 32) {
+    				attr(div0, "style", /*contentStyle*/ ctx[5]);
+    			}
+
+    			if (/*$$slots*/ ctx[10].right) {
+    				if (if_block1) {
+    					if_block1.p(ctx, dirty);
+
+    					if (dirty[0] & /*$$slots*/ 1024) {
+    						transition_in(if_block1, 1);
+    					}
+    				} else {
+    					if_block1 = create_if_block_2(ctx);
+    					if_block1.c();
+    					transition_in(if_block1, 1);
+    					if_block1.m(div1, t2);
+    				}
+    			} else if (if_block1) {
+    				group_outros();
+
+    				transition_out(if_block1, 1, 1, () => {
+    					if_block1 = null;
+    				});
+
+    				check_outros();
+    			}
+
+    			if (/*$$slots*/ ctx[10].left && /*mobileMode*/ ctx[0]) {
     				if (if_block2) {
     					if_block2.p(ctx, dirty);
     				} else {
     					if_block2 = create_if_block_1(ctx);
     					if_block2.c();
-    					if_block2.m(div, null);
+    					if_block2.m(div1, t3);
     				}
     			} else if (if_block2) {
     				if_block2.d(1);
     				if_block2 = null;
     			}
 
-    			if (!current || dirty[0] & /*contentStyle*/ 32) {
-    				attr(div, "style", /*contentStyle*/ ctx[5]);
-    			}
-
-    			if (/*$$slots*/ ctx[10].right) {
+    			if (/*$$slots*/ ctx[10].right && /*mobileMode*/ ctx[0]) {
     				if (if_block3) {
     					if_block3.p(ctx, dirty);
-
-    					if (dirty[0] & /*$$slots*/ 1024) {
-    						transition_in(if_block3, 1);
-    					}
     				} else {
     					if_block3 = create_if_block(ctx);
     					if_block3.c();
-    					transition_in(if_block3, 1);
-    					if_block3.m(if_block3_anchor.parentNode, if_block3_anchor);
+    					if_block3.m(div1, null);
     				}
     			} else if (if_block3) {
-    				group_outros();
-
-    				transition_out(if_block3, 1, 1, () => {
-    					if_block3 = null;
-    				});
-
-    				check_outros();
+    				if_block3.d(1);
+    				if_block3 = null;
     			}
     		},
     		i(local) {
     			if (current) return;
     			transition_in(if_block0);
     			transition_in(content_slot, local);
-    			transition_in(if_block3);
+    			transition_in(if_block1);
     			current = true;
     		},
     		o(local) {
     			transition_out(if_block0);
     			transition_out(content_slot, local);
-    			transition_out(if_block3);
+    			transition_out(if_block1);
     			current = false;
     		},
     		d(detaching) {
-    			if (if_block0) if_block0.d(detaching);
-    			if (detaching) detach(t0);
-    			if (detaching) detach(div);
-    			if (if_block1) if_block1.d();
+    			if (detaching) detach(div1);
+    			if (if_block0) if_block0.d();
     			if (content_slot) content_slot.d(detaching);
+    			if (if_block1) if_block1.d();
     			if (if_block2) if_block2.d();
-    			if (detaching) detach(t3);
-    			if (if_block3) if_block3.d(detaching);
-    			if (detaching) detach(if_block3_anchor);
+    			if (if_block3) if_block3.d();
     			mounted = false;
     			run_all(dispose);
     		}
@@ -903,10 +903,12 @@
     		$$invalidate(25, rightTransitioning = transition);
     	};
 
-    	const onTransitionEnd = () => {
-    		$$invalidate(23, leftTransitioning = false);
-    		$$invalidate(25, rightTransitioning = false);
-    		dispatch("change", { left: leftOpen, right: rightOpen });
+    	const onTransitionEnd = ({ propertyName }) => {
+    		if (propertyName === "left" || propertyName === "width") {
+    			$$invalidate(23, leftTransitioning = false);
+    			$$invalidate(25, rightTransitioning = false);
+    			dispatch("change", { left: leftOpen, right: rightOpen });
+    		}
     	};
 
     	const setPanelStates = transition => () => {
@@ -957,9 +959,9 @@
 
     	const makeScrimStyle = (side, open, transitioning, color) => `
 		${commonStyles}
-		${side}: 0;
+		${side}: calc(100% - ${scrimWidth});
 		width: ${scrimWidth};
-		z-index: ${open ? "4" : "-1"};
+		z-index: ${open && !transitioning ? "5" : "-1"};
 		opacity: ${open && !transitioning && "0.5" || "0"};
 		background-color: ${color};
 	`;
