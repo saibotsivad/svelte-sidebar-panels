@@ -515,7 +515,7 @@
     const get_left_slot_changes = dirty => ({});
     const get_left_slot_context = ctx => ({});
 
-    // (158:1) {#if $$slots.left}
+    // (148:1) {#if $$slots.left}
     function create_if_block_3(ctx) {
     	let div;
     	let current;
@@ -564,7 +564,7 @@
     	};
     }
 
-    // (168:1) {#if $$slots.right}
+    // (158:1) {#if $$slots.right}
     function create_if_block_2(ctx) {
     	let div;
     	let current;
@@ -613,7 +613,7 @@
     	};
     }
 
-    // (174:1) {#if $$slots.left && mobileMode}
+    // (164:1) {#if $$slots.left && mobileMode}
     function create_if_block_1(ctx) {
     	let div;
     	let mounted;
@@ -645,7 +645,7 @@
     	};
     }
 
-    // (178:1) {#if $$slots.right && mobileMode}
+    // (168:1) {#if $$slots.right && mobileMode}
     function create_if_block(ctx) {
     	let div;
     	let mounted;

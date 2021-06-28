@@ -24,7 +24,7 @@ The component emits an event named `change` which tells you when the panels
 change state, and you bind to `updatePanels` as a function to manually toggle
 the panels (e.g. from a nav menu).
 
-For example, using only the left panel:
+For example, using only the left panel ([view in REPL](https://svelte.dev/repl/17b29437e2a9465695c82b30f4896929)):
 
 ```html
 <script>

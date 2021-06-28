@@ -12,43 +12,33 @@
 	}
 
 	// The mobile breakpoint determines at what screen width to shift to mobile
-	// behaviour. The two big changes are: 1) only the left or right panel are
-	// allowed to be open, making one visible will hide the other, and 2) the
-	// content panel slides to the side, instead of getting the width adjusted,
-	// and a scrim/touch-panel is overlayed on the content, so that tapping it
-	// will hide the panel. (Since you can never view a panel and the content
-	// area, resizing the content only causes huge redraws, a waste of cycles.)
+	// behaviour. The two behaviour changes are: 1) *only* the left or right panel
+	// are allowed to be open, making one visible will hide the other, and 2) the
+	// content panel slides to the side, instead of adjusting the width, and a
+	// scrim/touch-panel is laid over the content, so that tapping the scrim
+	// will hide the panel.
 	export let mobileBreakpoint = 500
 
 	// When in mobile mode the content area is overlayed with a touch area, called
 	// a scrim (named after the theater drop), so that tapping it closes the panel.
 	// You'll want to make sure this touch area is wide enough that people can
-	// easily and accurately touch it. For minimums, Apple suggests 44px, Microsoft 24px,
-	// Nokia 28px, Android 48px. In my experience, these are all way too small for
-	// comfortable navigation.
+	// easily and accurately touch it.
 	export let scrimWidth = '70px'
 
 	// The scrim is given 50% opacity, so the content panel is still visible. You
-	// can use the scrim color to re-brand the scrim, or to change to light/dark.
+	// can adjust the scrim color to re-brand the scrim, or to change to a light
+	// or dark theme.
 	export let scrimColor = '#444'
-
-	// On screens that are big enough, you might want to initialize with the left
-	// and/or right panels open. The default values here are based on Bootstrap
-	// breakpoints, and I've found them to work pretty well across many different
-	// applications and devices. Set these attributes on the <SidebarPanels> to an
-	// integer of pixels, i.e. the breakpoint at which to change behaviour. If the
-	// screen width is less than the value it will initialize with the panels closed.
-	// To opt out of this behaviour, set the property to a falsey value.
 
 	// These attributes control the window width at which the left/right panels will
 	// automatically open (when resizing bigger) or automatically close (when resizing
 	// smaller). These also control whether the component initializes with the panels
-	// open or closed. To opt out of this behaviour, set the property to a falsey value.
+	// open or closed. To opt out of this automated behaviour, set the property to false.
 	export let leftOpenBreakpoint = 768
 	export let rightOpenBreakpoint = 1200
 
 	// You can either set an overall width, or different widths for the left and
-	// right panels. The width can be a string of any valid CSS "width" value.
+	// right panels. The width must be a string of any valid CSS "width" value.
 	export let width = '250px'
 	export let leftWidth
 	export let rightWidth
