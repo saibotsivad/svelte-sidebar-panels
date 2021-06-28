@@ -16,7 +16,6 @@
   },
   "keywords": [
     "svelte",
-    "accessible",
     "navigation",
     "menu"
   ],
@@ -35,7 +34,6 @@
     "rollup": "^2.52.2",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
-    "rollup-plugin-npm-run": "^1.0.2",
     "rollup-plugin-svelte": "^7.1.0",
     "sirv-cli": "^1.0.12",
     "svelte": "^3.38.3"
