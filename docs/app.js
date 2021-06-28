@@ -12,10 +12,7 @@ const onReady = callback => {
 }
 
 onReady(() => {
-	const demo = new Demo({
+	new Demo({
 		target: document.querySelector('body'),
-	})
-	demo.$on('foo', ({ detail }) => {
-		console.log('foo', detail)
 	})
 })

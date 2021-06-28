@@ -1550,7 +1550,7 @@
     	};
     }
 
-    // (40:1) 
+    // (44:1) 
     function create_right_slot(ctx) {
     	let div;
     	let h2;
@@ -1592,7 +1592,7 @@
     	};
     }
 
-    // (44:1) 
+    // (48:1) 
     function create_content_slot(ctx) {
     	let div1;
     	let div0;
@@ -1605,6 +1605,8 @@
     	let democontrols;
     	let updating_duration;
     	let t8;
+    	let p2;
+    	let t12;
     	let loremipsum;
     	let current;
 
@@ -1635,14 +1637,18 @@
     			h1.textContent = "Svelte Sidebar Panels";
     			t1 = space();
     			p0 = element("p");
-    			p0.textContent = "Intro text.";
+    			p0.textContent = "This component is the classic three-column website layout, where the left and right columns are\n\t\t\t\tcollapsible on smaller screens. (If you've seen the Discord mobile app, it's similar to that.)";
     			t3 = space();
     			p1 = element("p");
-    			p1.innerHTML = `Filler content generated using <a href="http://officeipsum.com/">OfficeIpsum</a>.`;
+    			p1.innerHTML = `For more details, check out the <a href="https://github.com/saibotsivad/svelte-sidebar-panels#readme">documentation</a>.`;
     			t7 = space();
     			create_component(democontrols.$$.fragment);
     			t8 = space();
+    			p2 = element("p");
+    			p2.innerHTML = `Filler text generated using <a href="http://officeipsum.com/">OfficeIpsum</a>.`;
+    			t12 = space();
     			create_component(loremipsum.$$.fragment);
+    			attr(p2, "class", "text-muted mb-0 mt-3");
     			attr(div0, "class", "container");
     			attr(div1, "slot", "content");
     			attr(div1, "class", "svelte-1q15izp");
@@ -1658,6 +1664,8 @@
     			append(div0, t7);
     			mount_component(democontrols, div0, null);
     			append(div0, t8);
+    			append(div0, p2);
+    			append(div0, t12);
     			mount_component(loremipsum, div0, null);
     			current = true;
     		},
@@ -1820,11 +1828,8 @@
     };
 
     onReady(() => {
-    	const demo = new Demo({
+    	new Demo({
     		target: document.querySelector('body'),
-    	});
-    	demo.$on('foo', ({ detail }) => {
-    		console.log('foo', detail);
     	});
     });
 

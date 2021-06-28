@@ -32,7 +32,11 @@
 	}
 </style>
 
-<SidebarPanels bind:updatePanels {duration} on:change={({ detail: { left, right } }) => { leftOpen = left; rightOpen = right }}>
+<SidebarPanels
+	{duration}
+	bind:updatePanels
+	on:change={({ detail: { left, right } }) => { leftOpen = left; rightOpen = right }}
+>
 	<div slot="left">
 		<h2>Left Sidebar</h2>
 		<LoremIpsum />
@@ -44,9 +48,12 @@
 	<div slot="content">
 		<div class="container">
 			<h1>Svelte Sidebar Panels</h1>
-			<p>Intro text.</p>
 			<p>
-				Filler content generated using <a href="http://officeipsum.com/">OfficeIpsum</a>.
+				This component is the classic three-column website layout, where the left and right columns are
+				collapsible on smaller screens. (If you've seen the Discord mobile app, it's similar to that.)
+			</p>
+			<p>
+				For more details, check out the <a href="https://github.com/saibotsivad/svelte-sidebar-panels#readme">documentation</a>.
 			</p>
 			<DemoControls
 				{leftOpen}
@@ -55,6 +62,9 @@
 				on:toggleLeft={ () => { updatePanels({ left: !leftOpen }) } }
 				on:toggleRight={ () => { updatePanels({ right: !rightOpen }) } }
 			/>
+			<p class="text-muted mb-0 mt-3">
+				Filler text generated using <a href="http://officeipsum.com/">OfficeIpsum</a>.
+			</p>
 			<LoremIpsum />
 		</div>
 	</div>
