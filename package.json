@@ -1,6 +1,6 @@
 {
   "name": "svelte-sidebar-panels",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Svelte sidebar navigational menu component.",
   "svelte": "src/index.js",
   "module": "dist/index.mjs",
