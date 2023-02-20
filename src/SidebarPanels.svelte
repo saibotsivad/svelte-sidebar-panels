@@ -1,7 +1,4 @@
 <script>
-	import { createEventDispatcher, onMount } from 'svelte'
-	const dispatch = createEventDispatcher()
-
 	// To manually toggle the panels externally, e.g. your navigation
 	// menu buttons, bind to this function and call it with whatever
 	// panel you want to update. Setting left/right to undefined will
@@ -53,6 +50,9 @@
 
 	// =============== end of exports ===============
 
+	import { createEventDispatcher, onMount } from 'svelte'
+	const dispatch = createEventDispatcher()
+
 	let windowWidth
 	let leftOpen
 	let leftTransitioning
@@ -95,7 +95,7 @@
 		position: absolute;
 		top: 0;
 		bottom: 0;
-		overflow-y: scroll;
+		overflow-y: auto;
 	`
 
 	$: mobileMode = windowWidth < mobileBreakpoint
@@ -162,10 +162,10 @@ to slide to the left/right to expose the panel underneath.
 	{/if}
 
 	{#if $$slots.left && mobileMode}
-		<div style={leftScrimStyle} on:click={leftScrimOff}></div>
+		<div style={leftScrimStyle} on:click={leftScrimOff} on:keypress={leftScrimOff}></div>
 	{/if}
 
 	{#if $$slots.right && mobileMode}
-		<div style={rightScrimStyle} on:click={rightScrimOff}></div>
+		<div style={rightScrimStyle} on:click={rightScrimOff} on:keypress={rightScrimOff}></div>
 	{/if}
 </div>
