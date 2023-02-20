@@ -5,11 +5,8 @@ on:
       - main
 permissions: {}
 jobs:
-  pages:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      pages: write # needed to deploy to Pages
-      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -21,5 +18,19 @@ jobs:
         run: npm ci
       - name: Build Demo
         run: npm run build
+      - name: Pack
+        uses: actions/upload-pages-artifact
+        with:
+          path: docs
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      pages: write # needed to deploy to Pages
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy GitHub Pages site
         uses: actions/deploy-pages@v1.2.4
