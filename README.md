@@ -3,8 +3,9 @@
 Svelte component for the classic two/three-column website layout, where the
 left and right columns can be toggled.
 
-[Have a look at the demo.](https://saibotsivad.github.io/svelte-sidebar-panels/)
-(Be sure to check it on a mobile device, or in your browser in mobile mode.)
+[Have a look at the demo](https://saibotsivad.github.io/svelte-sidebar-panels/), or look at the
+[demo code](https://github.com/saibotsivad/svelte-sidebar-panels/blob/main/src/demo/Demo.svelte).
+(Be sure to check the demo on a mobile device, or in your browser in mobile mode.)
 
 # Install
 

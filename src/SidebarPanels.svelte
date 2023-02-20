@@ -36,6 +36,7 @@
 
 	// You can either set an overall width, or different widths for the left and
 	// right panels. The width must be a string of any valid CSS "width" value.
+	// To completely get rid of a panel, use `0px` as the panel width.
 	export let width = '250px'
 	export let leftWidth
 	export let rightWidth
